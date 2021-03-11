@@ -1,0 +1,36 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;
+  font-family: 黑體-繁, Apple LiGothic Medium, PingFang, 微軟正黑體, Microsoft JhengHei, WenQuanYi Zen Hei, helvetica, Arial, sans-serif;
+}
+
+body {
+  text-align: center;
+}
+
+#bg {
+  width: 100vw;
+  height: 12vh;
+  position: fixed;
+  bottom: 0;
+  opacity: 0.7;
+  background-image: linear-gradient(to top right, #4facfe 0%, #00f2fe 33%, #fee140 90%);
+  animation: wave 7s alternate-reverse infinite;
+}
+
+@keyframes wave {
+  0% {
+    transform: translateY(24px) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(12px) rotate(0deg);
+  }
+
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}

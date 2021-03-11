@@ -1,5 +1,4 @@
-html,
-body {
+* {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -7,30 +6,75 @@ body {
   font-family: 黑體-繁, Apple LiGothic Medium, PingFang, 微軟正黑體, Microsoft JhengHei, WenQuanYi Zen Hei, helvetica, Arial, sans-serif;
 }
 
-body {
-  text-align: center;
+html {
+  height: 100%;
 }
 
-#bg {
+body {
+  height: 100%;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+h1 {
+  padding: 3rem 0 2rem;
+}
+
+#footer {
   width: 100vw;
   height: 12vh;
-  position: fixed;
-  bottom: 0;
+  overflow: hidden;
+}
+
+#wave {
+  width: 100%;
+  height: 100%;
   opacity: 0.7;
   background-image: linear-gradient(to top right, #4facfe 0%, #00f2fe 33%, #fee140 90%);
   animation: wave 7s alternate-reverse infinite;
 }
 
+.card-container {
+  width: 80%;
+  padding: 3rem 0;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  padding: 1rem;
+  margin: 2.5rem;
+  border: 1px solid #9996;
+  border-radius: 50%;
+  animation: golden 7s alternate infinite;
+
+  img {
+    border-radius: 50%;
+  }
+}
+
 @keyframes wave {
   0% {
-    transform: translateY(24px) rotate(0deg);
+    transform: translateY(24px);
   }
 
   50% {
-    transform: translateY(12px) rotate(0deg);
+    transform: translateY(12px);
   }
 
   100% {
-    transform: translateY(0px) rotate(0deg);
+    transform: translateY(0px);
+  }
+}
+
+@keyframes golden {
+  50% {
+    box-shadow: 0px 0px 1px gold;
+  }
+
+  100% {
+    box-shadow: 0px 0px 2px rgb(224, 191, 0);
   }
 }

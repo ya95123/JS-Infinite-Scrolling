@@ -84,6 +84,16 @@ h1 {
   background-image: -webkit-gradient(linear, left bottom, right top, from(#4facfe), color-stop(33%, #00f2fe), color-stop(90%, #fee140));
   background-image: linear-gradient(to top right, #4facfe 0%, #00f2fe 33%, #fee140 90%);
   animation: wave 7s alternate-reverse infinite;
+  font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 @-webkit-keyframes wave {

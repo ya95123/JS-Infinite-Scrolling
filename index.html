@@ -13,7 +13,16 @@
   <h1>練習Infinite-Scrolling</h1>
   <h4>滾動到底，就會再載入or顯示資訊。</h4>
 
-  <div class="card-container">
+  <div class="container-description">
+    <ul>
+      <li>1. 宣告響鈴條件：options</li>
+      <li>2. 宣告 cb 做觸發時的動作</li>
+      <li>3. 宣告鈴鐺：Intersection Observer</li>
+      <li>4. 設定觀察對象 observe</li>
+    </ul>
+  </div>
+
+  <div id="container-card">
     <div class="card">
       <img src="https://picsum.photos/300/300/?random=1">
     </div>
@@ -38,9 +47,11 @@
     <div class="card">
       <img src="https://picsum.photos/300/300/?random=8">
     </div>
-
+    <div class="card">
+      <img src="https://picsum.photos/300/300/?random=9">
+    </div>
+    <div id="loadingNew"></div>
   </div>
-
   <div id="footer">
     <div id="wave"></div>
   </div>

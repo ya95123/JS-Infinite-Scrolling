@@ -22,22 +22,13 @@ h1 {
   padding: 3rem 0 2rem;
 }
 
-#footer {
-  width: 100vw;
-  height: 12vh;
-  overflow: hidden;
+.container-description {
+  width: 60%;
+  margin: 3rem auto 0 auto;
+  border-radius: 3px;
 }
 
-#wave {
-  width: 100%;
-  height: 100%;
-  opacity: 0.7;
-  background-image: -webkit-gradient(linear, left bottom, right top, from(#4facfe), color-stop(33%, #00f2fe), color-stop(90%, #fee140));
-  background-image: linear-gradient(to top right, #4facfe 0%, #00f2fe 33%, #fee140 90%);
-  animation: wave 7s alternate-reverse infinite;
-}
-
-.card-container {
+#container-card {
   width: 80%;
   padding: 3rem 0;
   margin: auto;
@@ -54,14 +45,45 @@ h1 {
 .card {
   padding: 1rem;
   margin: 2.5rem;
-  border: 1px solid #9996;
+  border: 1px solid #959398;
   border-radius: 50%;
-  -webkit-animation: golden 7s alternate infinite;
-          animation: golden 7s alternate infinite;
+  position: relative;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  -webkit-animation: golden 5s alternate infinite;
+          animation: golden 5s alternate infinite;
+}
+
+.card:hover {
+  cursor: pointer;
+  -webkit-transform: scale(0.99);
+          transform: scale(0.99);
 }
 
 .card img {
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
+}
+
+#loadingNew {
+  width: 100%;
+  height: 1px;
+}
+
+#footer {
+  width: 100vw;
+  height: 12vh;
+  overflow: hidden;
+}
+
+#footer #wave {
+  width: 100%;
+  height: 100%;
+  opacity: 0.7;
+  background-image: -webkit-gradient(linear, left bottom, right top, from(#4facfe), color-stop(33%, #00f2fe), color-stop(90%, #fee140));
+  background-image: linear-gradient(to top right, #4facfe 0%, #00f2fe 33%, #fee140 90%);
+  animation: wave 7s alternate-reverse infinite;
 }
 
 @-webkit-keyframes wave {
@@ -91,27 +113,5 @@ h1 {
   100% {
     -webkit-transform: translateY(0px);
             transform: translateY(0px);
-  }
-}
-
-@-webkit-keyframes golden {
-  50% {
-    -webkit-box-shadow: 0px 0px 1px gold;
-            box-shadow: 0px 0px 1px gold;
-  }
-  100% {
-    -webkit-box-shadow: 0px 0px 2px #e0bf00;
-            box-shadow: 0px 0px 2px #e0bf00;
-  }
-}
-
-@keyframes golden {
-  50% {
-    -webkit-box-shadow: 0px 0px 1px gold;
-            box-shadow: 0px 0px 1px gold;
-  }
-  100% {
-    -webkit-box-shadow: 0px 0px 2px #e0bf00;
-            box-shadow: 0px 0px 2px #e0bf00;
   }
 }

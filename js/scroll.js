@@ -53,6 +53,7 @@ observerAddCard.observe(loadingNew)
 // 開始觀察某個獵物：observer.observe(el)
 // 取消觀察某個獵物：observer.unobserve(el)
 // 自爆，關掉這個觀察器：observer.disconnect()
+// 是否進入可是範圍 isIntersecting
 
 
 // 參考來源：

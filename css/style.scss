@@ -48,6 +48,7 @@ h1 {
   &:hover {
     cursor: pointer;
     transform: scale(1.025);
+
   }
 
   img {
@@ -55,6 +56,11 @@ h1 {
     height: 300px;
     border-radius: 50%;
   }
+}
+
+.focus {
+  background: #fee14065;
+  border: 1px solid transparent;
 }
 
 #loadingNew {

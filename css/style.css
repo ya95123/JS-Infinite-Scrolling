@@ -56,8 +56,8 @@ h1 {
 
 .card:hover {
   cursor: pointer;
-  -webkit-transform: scale(0.99);
-          transform: scale(0.99);
+  -webkit-transform: scale(1.025);
+          transform: scale(1.025);
 }
 
 .card img {

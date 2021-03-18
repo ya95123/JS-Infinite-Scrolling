@@ -3,10 +3,10 @@ const loadingNew = document.getElementById("loadingNew")
 const cards = document.querySelectorAll(".card")
 
 let isObserverStart = false
-let imgIdx = 9
+let imgIdx = cards.length
 
 // *響鈴條件：設定和控制在哪些情況下，呼叫 callback 函式
-const optionsCard = {
+const optionsAddCard = {
   // 觀察範圍(設為 null 時，預設為 viewport)，必須要是所有目標元素的父元素
   root: null,
   // 設定 root 周圍的 margin — 能有效的「擴大或縮小這個用來觀察的盒子範圍」
@@ -16,7 +16,7 @@ const optionsCard = {
 }
 
 // *觸發 callback：目標進入或離開 viewport 時觸發此 callback 函式
-let callbackCard = (entries) => {
+let callbackAddCard = (entries) => {
   // 進入畫面會先觀察到全部
   console.log(entries)
 
@@ -42,7 +42,7 @@ let callbackCard = (entries) => {
 }
 
 // *製作鈴鐺：Intersection Observer
-const observerAddCard = new IntersectionObserver(callbackCard, optionsCard)
+const observerAddCard = new IntersectionObserver(callbackAddCard, optionsAddCard)
 
 // *設定觀察對象：告訴 observer 要觀察哪個目標元素
 observerAddCard.observe(loadingNew)

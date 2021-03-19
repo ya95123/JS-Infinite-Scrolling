@@ -13,6 +13,7 @@ html {
 body {
   height: 100%;
   text-align: center;
+  position: relative;
   overflow-x: hidden;
 }
 
@@ -20,7 +21,7 @@ h1 {
   padding: 3rem 0 2rem;
 }
 
-.container-description {
+#container-description {
   width: 60%;
   margin: 3rem auto 0 auto;
   border-radius: 3px;

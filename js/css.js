@@ -5,19 +5,11 @@ const optionsCard = {
   threshold: 1
 }
 
-let isObserverCardStart = false
-
 // *callback
 let callbackCard = (entries) => {
-  if (isObserverCardStart) {
-    entries.forEach(entry => {
-      entry.target.classList.toggle("focus")
-      if (entry.isIntersecting) console.log("進入可視範圍")
-    })
-  }
-
-  console.log(entries)
-  isObserverCardStart = true
+  entries.forEach(entry => {
+    entry.isIntersecting ? entry.target.classList.add("focus") : entry.target.classList.remove("focus")
+  })
 }
 
 // *製作鈴鐺

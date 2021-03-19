@@ -4,17 +4,18 @@ const cards = document.querySelectorAll(".card")
 
 let imgIdx = cards.length
 
-// TODO：針對現有 DOM 做 css 的變化觀察
+// TODO-1：針對現有 DOM 做 css 的變化觀察
 // *響鈴條件
 const optionsCard = {
   root: null,
-  rootMargin: "0px 0px 0px 0px",
+  rootMargin: "20px 0px 0px 0px",
   threshold: 1
 }
 
 // *callback
 let callbackCard = (entries) => {
   entries.forEach(entry => {
+    // 增加 or 移除 focus class
     entry.isIntersecting ? entry.target.classList.add("focus") : entry.target.classList.remove("focus")
   })
 }
@@ -28,15 +29,15 @@ cards.forEach(card => {
 })
 
 
-// TODO：滑到底，增加新的三張圖，並為新 DOM 加入 css 的變化觀察
+// TODO-2：滑到底，增加新的三張圖，並為新 DOM 加入 css 的變化觀察
 // *響鈴條件：設定和控制在哪些情況下，呼叫 callback 函式
 const optionsAddCard = {
   // 觀察範圍(設為 null 時，預設為 viewport)，必須要是所有目標元素的父元素
   root: null,
   // 設定 root 周圍的 margin — 能有效的「擴大或縮小這個用來觀察的盒子範圍」
-  rootMargin: "-200px 0px 0px 0px",
+  rootMargin: "0px 0px 0px 0px",
   // 設定目標元素的可見度達到多少比例時，觸發 callback 函式
-  threshold: 1
+  threshold: 0
 }
 
 // *觸發 callback：目標進入或離開 viewport 時觸發此 callback 函式
@@ -60,12 +61,12 @@ let callbackAddCard = (entries, observer) => {
       </div>`
       )
 
-      // 給新元素加入觀察
+      // 給新元素加入 css 觀察
       const newCards = document.querySelectorAll(".card")
       let newCardIdx = newCards.length - 1
       observerCard.observe(newCards[newCardIdx])
     }
-    // 滿 30 張則停止觀察
+    // 滿 30 張則停止 AddCard 觀察
     if (imgIdx == 30) observer.unobserve(entry.target)
   })
 }

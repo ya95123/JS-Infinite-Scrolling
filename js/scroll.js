@@ -2,7 +2,6 @@ const containerCard = document.getElementById("container-card")
 const loadingNew = document.getElementById("loadingNew")
 const cards = document.querySelectorAll(".card")
 
-let isObserverStart = false
 let imgIdx = cards.length
 
 // *響鈴條件：設定和控制在哪些情況下，呼叫 callback 函式
@@ -16,29 +15,29 @@ const optionsAddCard = {
 }
 
 // *觸發 callback：目標進入或離開 viewport 時觸發此 callback 函式
-let callbackAddCard = (entries) => {
+let callbackAddCard = (entries, observer) => {
   // 進入畫面會先觀察到全部
   console.log(entries)
 
   // 各個元素的觀察與觸發
-  if (isObserverStart) {
-    console.log(entries)
-    entries.forEach(entry => entry.target.style.opacity = "0.5")
+  entries.forEach(entry => {
+    // 是否進入可視畫面，沒有就不作用，避免第一次全部被觸發
+    if (!entry.isIntersecting) return
+    console.log(entry)
 
     // 增加三張圖
-    if (imgIdx == 30) return
     for (let i = 0; i < 3; i++) {
       imgIdx++
+      console.log(imgIdx)
       loadingNew.insertAdjacentHTML("beforebegin",
         `<div class="card">
-          <img src="https://picsum.photos/300/300/?random=${imgIdx}">
-        </div>`
+            <img src="https://picsum.photos/300/300/?random=${imgIdx}">
+          </div>`
       )
     }
-  }
-
-  // 正式進入觀察
-  isObserverStart = true
+    // 滿 30 張則停止觀察
+    if (imgIdx == 30) observer.unobserve(entry.target)
+  })
 }
 
 // *製作鈴鐺：Intersection Observer
@@ -46,8 +45,6 @@ const observerAddCard = new IntersectionObserver(callbackAddCard, optionsAddCard
 
 // *設定觀察對象：告訴 observer 要觀察哪個目標元素
 observerAddCard.observe(loadingNew)
-// cards.forEach(target => observerAddCard.observe(target))
-
 
 
 // 開始觀察某個獵物：observer.observe(el)

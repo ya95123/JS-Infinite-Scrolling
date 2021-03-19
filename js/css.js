@@ -1,3 +1,4 @@
+// *針對起初創建好的 DOM 做觀察
 // *響鈴條件
 const optionsCard = {
   root: null,
@@ -8,6 +9,7 @@ const optionsCard = {
 // *callback
 let callbackCard = (entries) => {
   entries.forEach(entry => {
+    // 增加 or 移除 focus class
     entry.isIntersecting ? entry.target.classList.add("focus") : entry.target.classList.remove("focus")
   })
 }
@@ -19,3 +21,8 @@ const observerCard = new IntersectionObserver(callbackCard, optionsCard)
 cards.forEach(card => {
   observerCard.observe(card)
 })
+
+
+
+
+

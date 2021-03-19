@@ -4,6 +4,31 @@ const cards = document.querySelectorAll(".card")
 
 let imgIdx = cards.length
 
+// TODO：針對現有 DOM 做 css 的變化觀察
+// *響鈴條件
+const optionsCard = {
+  root: null,
+  rootMargin: "0px 0px 0px 0px",
+  threshold: 1
+}
+
+// *callback
+let callbackCard = (entries) => {
+  entries.forEach(entry => {
+    entry.isIntersecting ? entry.target.classList.add("focus") : entry.target.classList.remove("focus")
+  })
+}
+
+// *製作鈴鐺
+const observerCard = new IntersectionObserver(callbackCard, optionsCard)
+
+// *目標對象
+cards.forEach(card => {
+  observerCard.observe(card)
+})
+
+
+// TODO：滑到底，增加新的三張圖，並為新 DOM 加入 css 的變化觀察
 // *響鈴條件：設定和控制在哪些情況下，呼叫 callback 函式
 const optionsAddCard = {
   // 觀察範圍(設為 null 時，預設為 viewport)，必須要是所有目標元素的父元素
@@ -31,9 +56,14 @@ let callbackAddCard = (entries, observer) => {
       console.log(imgIdx)
       loadingNew.insertAdjacentHTML("beforebegin",
         `<div class="card">
-            <img src="https://picsum.photos/300/300/?random=${imgIdx}">
-          </div>`
+      <img src="https://picsum.photos/300/300/?random=${imgIdx}">
+      </div>`
       )
+
+      // 給新元素加入觀察
+      const newCards = document.querySelectorAll(".card")
+      let newCardIdx = newCards.length - 1
+      observerCard.observe(newCards[newCardIdx])
     }
     // 滿 30 張則停止觀察
     if (imgIdx == 30) observer.unobserve(entry.target)
